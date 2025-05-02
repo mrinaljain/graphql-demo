@@ -1,0 +1,17 @@
+{
+  "name": "graphql",
+  "version": "1.0.0",
+  "description": "grapgql api demo",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "keywords": [
+    "graphql"
+  ],
+  "author": "mrinal jain",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^5.1.0"
+  }
+}
