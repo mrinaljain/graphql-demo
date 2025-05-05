@@ -3,8 +3,12 @@ import { startStandaloneServer } from "@apollo/server/standalone";
 import { connectDb } from "./database/database.js";
 import customerModel from "./models/customer.model.js";
 
+import dotenv from "dotenv";
+dotenv.config();
 
-connectDb("mongodb+srv://mrinal:spree12345@cluster0.5yymuvg.mongodb.net/");
+const dbUrl = process.env.DB_URL;
+
+connectDb(dbUrl);
 
 const typeDefs = `#graphql
 type Customer {
