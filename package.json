@@ -2,8 +2,9 @@
   "name": "graphql",
   "version": "1.0.0",
   "description": "grapgql api demo",
-  "main": "index.js",
+  "type": "module",
   "scripts": {
+    "start": "nodemon src/app.js",
     "test": "jest"
   },
   "keywords": [
@@ -12,6 +13,10 @@
   "author": "mrinal jain",
   "license": "ISC",
   "dependencies": {
-    "express": "^5.1.0"
+    "@apollo/server": "^4.12.0",
+    "express": "^5.1.0",
+    "graphql": "^15.10.1",
+    "mongoose": "^8.14.1",
+    "nodemon": "^3.1.10"
   }
 }
