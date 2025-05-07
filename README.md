@@ -1,0 +1,17 @@
+- Standalone server
+- Schema
+   - type Query
+   - type Mutation
+- Resolvers (parent, args , context)
+- populate ka alternative [ alternate resolver]
+- Example of custom resolver 
+- Folder structure managing
+- using express server
+   - express middleware
+- using graphql, REST API simultaneously
+- authentication/middleware
+- using graphql in react frontend [GET, POST]
+   - useQuerry
+   - useLAzzyQuerry
+   - mutation[post]
+- copy tsconfig from video 

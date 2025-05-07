@@ -1,9 +1,12 @@
 import { ApolloServer } from "@apollo/server";
 import { startStandaloneServer } from "@apollo/server/standalone";
 import { connectDb } from "./database/database.js";
-import customerModel from "./models/customer.model.js";
 
 import dotenv from "dotenv";
+import {
+  getCustomers,
+  getIndividualCustomer,
+} from "./controllers/customre.controller.js";
 dotenv.config();
 
 const dbUrl = process.env.DB_URL;
@@ -21,22 +24,18 @@ type Customer {
 }
  type Query {
     customers: [Customer]
-    customer: Customer
+    customer(id: ID!): Customer
   }
 `;
 
 const resolvers = {
   Query: {
-    customers: async () => {
-      let customers = await customerModel.find();
-      return customers;
+    customers: getCustomers,
+    customer: (parent, args) => {
+      console.log(args);
+
+      getIndividualCustomer(args.id);
     },
-    customer:async (parent, arg)=>{
-      console.log(arg.id);
-      
-      let customer = await customerModel.findById(arg.id);
-      return customer;
-    }
   },
 };
 
@@ -44,7 +43,6 @@ const server = new ApolloServer({
   typeDefs,
   resolvers,
 });
-
 
 const { url } = await startStandaloneServer(server, {
   listen: { port: 4000 },
