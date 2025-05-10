@@ -4,8 +4,10 @@
   "description": "grapgql api demo",
   "type": "module",
   "scripts": {
-    "start": "nodemon src/app.js",
-    "test": "jest"
+    "build": "tsc",
+    "start": "node dist/index.js",
+    "dev": "concurrently \"tsc -w\" \"nodemon dist/index.js\"",
+    "start:watch": "nodemon dist/index.js"
   },
   "keywords": [
     "graphql"
@@ -15,7 +17,16 @@
   "dependencies": {
     "@apollo/server": "^4.12.0",
     "dotenv": "^16.5.0",
-    "mongoose": "^8.14.1",
-    "nodemon": "^3.1.10"
+    "express": "^5.1.0",
+    "mongoose": "^8.14.1"
+  },
+  "devDependencies": {
+    "@types/express": "^5.0.1",
+    "@types/node": "^22.15.16",
+    "concurrently": "^9.1.2",
+    "nodemon": "^3.1.10",
+    "ts-node": "^10.9.2",
+    "ts-node-dev": "^2.0.0",
+    "typescript": "^5.8.3"
   }
 }

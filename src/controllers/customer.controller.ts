@@ -7,9 +7,7 @@ export const getCustomers = async function () {
 };
 
 
-export const getIndividualCustomer  = async function (id){
-   console.log(id);
-   
-   let customer = await customerModel.findById(id);
-   return customer;
+export const getIndividualCustomer = async (parent: any, args: { id: string }) => {
+  let customer = await customerModel.findById(args.id);
+  return customer;
 };
